@@ -8,6 +8,7 @@ export interface IRecipe {
   ingredients: string;
   description: string;
   category: ICategory;
+  photo: string;
   createdAt: Date;
   updatedAt: Date;
 }
