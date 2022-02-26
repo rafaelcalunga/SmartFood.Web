@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Col, Row } from 'react-bootstrap';
 import { IRecipe } from '../../models/IRecipe';
 import api from '../../services/api';
 import Recipe from './Recipe';
@@ -26,12 +27,16 @@ const Recipes: React.FC = () => {
   };
 
   return (
-    <div>
+    <>
       <h1>Recipes</h1>
-      {recipes.map((recipe) => (
-        <Recipe recipe={recipe} key={recipe.id} />
-      ))}
-    </div>
+      <Row>
+        {recipes.map((recipe) => (
+          <Col xs={12} md={3} key={recipe.id}>
+            <Recipe recipe={recipe} />
+          </Col>
+        ))}
+      </Row>
+    </>
   );
 };
 
