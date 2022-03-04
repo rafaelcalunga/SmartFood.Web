@@ -44,7 +44,16 @@ const Recipes: React.FC = () => {
         ))}
       </Row>
 
-      {showForm && <RecipeForm show={showForm} onClose={() => setShowForm(false)} />}
+      {showForm && (
+        <RecipeForm
+          show={showForm}
+          onClose={() => setShowForm(false)}
+          onAdd={(recipe: IRecipe) => {
+            setRecipes([...recipes, recipe]);
+            setShowForm(false);
+          }}
+        />
+      )}
     </>
   );
 };
