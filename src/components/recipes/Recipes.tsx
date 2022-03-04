@@ -28,6 +28,11 @@ const Recipes: React.FC = () => {
       .catch((error) => console.error(error));
   };
 
+  const addRecipe = (recipe: IRecipe) => {
+    setRecipes([...recipes, recipe]);
+    setShowForm(false);
+  };
+
   return (
     <>
       <h1>Recipes</h1>
@@ -48,10 +53,7 @@ const Recipes: React.FC = () => {
         <RecipeForm
           show={showForm}
           onClose={() => setShowForm(false)}
-          onAdd={(recipe: IRecipe) => {
-            setRecipes([...recipes, recipe]);
-            setShowForm(false);
-          }}
+          onAdd={(recipe) => addRecipe(recipe)}
         />
       )}
     </>
